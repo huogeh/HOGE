@@ -72,3 +72,38 @@ h1 {
     padding: 24px;
   }
 }
+/* 开场动画样式 */
+#splash-screen {
+  position: fixed;
+  z-index: 9999;
+  inset: 0;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #0ff;
+  font-family: 'Orbitron', sans-serif;
+  transition: opacity 1s ease;
+}
+
+.splash-content {
+  text-align: center;
+}
+
+.splash-logo {
+  font-size: 3rem;
+  letter-spacing: 2px;
+  margin-bottom: 0.5em;
+  text-shadow: 0 0 10px #0ff;
+}
+
+.splash-tagline {
+  font-size: 1.5rem;
+  opacity: 0.8;
+  text-shadow: 0 0 5px #0ff;
+}
+
+#splash-screen.fade-out {
+  opacity: 0;
+}
