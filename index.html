@@ -16,6 +16,28 @@
   </div>
 </div>
 
+  <main class="main-card glass">
+  <h1>欢迎来到 HOGE GAMES</h1>
+  <p>选择你要进入的游戏世界</p>
+  <button id="openGameSelector" class="btn-glass">开始游戏</button>
+</main>
+
+<!-- 游戏选择弹窗 -->
+<div id="gameSelectorModal" class="modal hidden">
+  <div class="modal-content glass">
+    <span class="close-button" id="closeGameSelector">&times;</span>
+    <h2>选择游戏</h2>
+    <div class="game-options">
+      <div class="game-card" onclick="location.href='game.html'">
+        <img src="assets/imgs/game-placeholder.png" alt="战棋" />
+        <p>战棋</p>
+      </div>
+      <!-- 你也可以添加更多游戏 -->
+    </div>
+  </div>
+</div>
+
+
   <nav class="navbar">
     <div class="logo">HOGE GAMES</div>
     <ul class="nav-links">
