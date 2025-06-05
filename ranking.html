@@ -1,43 +1,46 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>排行榜 - HOGE GAMES</title>
   <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <nav class="navbar">
-    <div class="logo">HOGE GAMES</div>
-    <ul class="nav-links">
-      <li><a href="index.html">首页</a></li>
-      <li><a href="game.html">开始游戏</a></li>
-      <li><a href="character.html">角色图鉴</a></li>
-      <li><a href="ranking.html">排行榜</a></li>
-      <li><a href="login.html">登录</a></li>
-    </ul>
-  </nav>
-  <main class="content">
-    <h1>排行榜</h1>
-    <p>这里将展示全服前十玩家（占位）</p>
-  </main>
-  <script src="js/main.js"></script>
-  <div id="tsparticles"></div>
-<script src="https://cdn.jsdelivr.net/npm/tsparticles@3.1.0/tsparticles.bundle.min.js"></script>
-<script>
-tsParticles.load("tsparticles", {
-  fullScreen: { enable: true, zIndex: -1 },
-  particles: {
-    number: { value: 50 },
-    color: { value: "#00ffff" },
-    shape: { type: "circle" },
-    opacity: { value: 0.4 },
-    size: { value: { min: 1, max: 5 } },
-    move: { enable: true, speed: 1 }
-  },
-  background: { color: "transparent" }
-});
-</script>
+  <header class="top-header">
+    <img src="assets/logo.png" alt="Logo" class="logo" />
+    <nav class="nav-links">
+      <a href="index.html">首页</a>
+      <a href="character.html">角色图鉴</a>
+      <a href="#">排行榜</a>
+      <a href="login.html">登录</a>
+    </nav>
+  </header>
 
+  <main class="page-container">
+    <h1 class="page-title">排行榜</h1>
+    <div class="ranking-table">
+      <div class="ranking-header">
+        <span>排名</span><span>玩家名</span><span>得分</span>
+      </div>
+      <div class="ranking-row">
+        <span>1</span><span>PlayerOne</span><span>9870</span>
+      </div>
+      <div class="ranking-row">
+        <span>2</span><span>夜光</span><span>8760</span>
+      </div>
+      <!-- 更多数据 -->
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>© 2025 HOGE GAMES</p>
+    <div class="footer-icons">
+      <a href="#"><img src="assets/twitter.svg" alt="Twitter" /></a>
+      <a href="#"><img src="assets/discord.svg" alt="Discord" /></a>
+      <a href="mailto:contact@hogegames.com">Contact</a>
+    </div>
+  </footer>
 </body>
 </html>
