@@ -1,228 +1,188 @@
-/* 样式重置和字体 */
-body, html {
+/* Reset & base layout */
+* {
   margin: 0;
   padding: 0;
-  font-family: 'Segoe UI', Roboto, sans-serif;
-  background-color: #0a0a0a;
-  color: white;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f5f7fa;
+  color: #1a1a1a;
+  min-height: 100vh;
   overflow-x: hidden;
 }
 
 a {
-  color: inherit;
   text-decoration: none;
+  color: inherit;
 }
 
-h1, h2, h3 {
-  font-family: 'Orbitron', 'Segoe UI', sans-serif;
+img {
+  max-width: 100%;
+  display: block;
 }
 
-/* 粒子背景容器层 */
-#tsparticles {
-  position: fixed;
-  z-index: -1;
-  width: 100%;
-  height: 100%;
+/* Typography */
+h1, h2, h3, h4 {
+  font-weight: 600;
+  color: #111;
 }
 
-/* 开场动画 */
-#splash-screen {
-  position: fixed;
-  z-index: 9999;
-  background: #0a0a0a;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  transition: opacity 1s ease;
+p {
+  line-height: 1.7;
+  color: #444;
 }
 
-#splash-screen.fade-out {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.splash-content h1 {
-  font-size: 3rem;
-  font-weight: bold;
-  color: #00ffff;
-  margin: 0;
-}
-
-.splash-tagline {
-  font-size: 1.2rem;
-  color: #ccc;
-  margin-top: 1rem;
-}
-
-/* 导航栏 */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  background: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(10px);
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
-
-.logo {
-  font-family: Orbitron, sans-serif;
-  font-weight: bold;
-  font-size: 1.5rem;
-  color: #00ffff;
-}
-
-.nav-links {
-  display: flex;
-  gap: 1.5rem;
-  list-style: none;
-}
-
-.nav-links a {
-  color: white;
-  font-weight: 500;
-  transition: color 0.2s;
-}
-
-.nav-links a:hover {
-  color: #00ffff;
-}
-
-/* 主卡片（玻璃拟态） */
-.main-card {
-  margin: 6rem auto 3rem;
-  padding: 3rem 2rem;
-  max-width: 600px;
-  text-align: center;
-  border-radius: 20px;
-  box-shadow: 0 0 40px rgba(0, 255, 255, 0.1);
-}
-
-/* 通用玻璃拟态卡片 */
-.glass {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-}
-
-/* 游戏选择弹窗 */
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0,0,0,0.6);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.modal.hidden {
-  display: none;
-}
-
-.modal-content {
-  background: rgba(255,255,255,0.05);
-  backdrop-filter: blur(15px);
-  padding: 2rem;
-  border-radius: 16px;
-  box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
-  max-width: 500px;
+/* Layout container */
+.container {
   width: 90%;
-  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 0;
 }
 
-.modal-content h2 {
-  margin-bottom: 1rem;
-  color: #00ffff;
+/* Header */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #ffffffcc;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  z-index: 1000;
 }
 
-.close-button {
-  position: absolute;
-  top: 2rem;
-  right: 2rem;
-  font-size: 1.5rem;
-  color: #fff;
-  cursor: pointer;
-}
-
-.game-options {
+header .nav {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+}
+
+header .nav .logo {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #111;
+}
+
+header .nav .menu {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.menu a {
+  font-weight: 500;
+  padding: 6px 12px;
+  transition: 0.2s;
+}
+
+.menu a:hover {
+  color: #0066ff;
+}
+
+/* Hero section / main landing */
+.hero {
+  display: flex;
+  align-items: center;
   justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+  background: transparent;
+}
+
+.hero .content {
+  max-width: 800px;
+  animation: fadeIn 1.2s ease-out;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.btn-primary {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #0066ff;
+  color: #fff;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: 0.3s;
+  border: none;
+  margin-top: 24px;
+}
+
+.btn-primary:hover {
+  background-color: #004ecc;
+}
+
+/* Section Cards (Character / Ranking etc) */
+.grid {
+  display: grid;
   gap: 2rem;
-  margin-top: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  margin-top: 60px;
 }
 
-.game-card {
-  background: rgba(255,255,255,0.05);
-  padding: 1rem;
+.card {
+  background: #fff;
   border-radius: 12px;
-  transition: transform 0.3s, box-shadow 0.3s;
-  cursor: pointer;
-  width: 120px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  transition: 0.3s ease;
 }
 
-.game-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 15px #00ffff;
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
 }
 
-.game-card img {
+.card img {
   width: 100%;
   height: auto;
-  border-radius: 8px;
 }
 
-/* 按钮样式 */
-.btn-glass {
-  background: linear-gradient(to right, #00ffff, #0088ff);
-  color: white;
-  padding: 0.75rem 1.5rem;
-  border: none;
-  border-radius: 8px;
-  font-weight: bold;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
-  margin-top: 1rem;
+.card .info {
+  padding: 1rem;
 }
 
-.btn-glass:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 0 10px #00ffff;
+.card .info h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
 }
 
-/* 主内容区域 */
-.content {
-  padding: 2rem;
+/* Footer */
+footer {
+  background: #f0f0f0;
   text-align: center;
+  padding: 30px 0;
+  font-size: 0.95rem;
+  color: #666;
+  margin-top: 80px;
 }
 
-/* 响应式 */
-@media screen and (max-width: 768px) {
-  .nav-links {
-    flex-direction: column;
-    background: rgba(0, 0, 0, 0.8);
-    position: absolute;
-    top: 60px;
-    right: 0;
-    display: none;
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.2rem;
   }
 
-  .game-options {
-    flex-direction: column;
-    align-items: center;
+  .hero p {
+    font-size: 1rem;
   }
+}
 
   .main-card {
     margin: 4rem 1rem;
