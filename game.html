@@ -1,44 +1,38 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>游戏页 - HOGE GAMES</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>游戏开始 - HOGE GAMES</title>
   <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
 </head>
-<body>
-  <nav class="navbar">
-    <div class="logo">HOGE GAMES</div>
-    <ul class="nav-links">
-      <li><a href="index.html">首页</a></li>
-      <li><a href="game.html">开始游戏</a></li>
-      <li><a href="character.html">角色图鉴</a></li>
-      <li><a href="ranking.html">排行榜</a></li>
-      <li><a href="login.html">登录</a></li>
-    </ul>
-  </nav>
-  <main class="content">
-    <h1>开始游戏</h1>
-    <p>点击下方按钮进入战棋模式（占位）</p>
-    <button style="padding: 12px 24px; font-size: 18px;">进入战棋游戏</button>
-  </main>
-  <script src="js/main.js"></script>
-  <div id="tsparticles"></div>
-<script src="https://cdn.jsdelivr.net/npm/tsparticles@3.1.0/tsparticles.bundle.min.js"></script>
-<script>
-tsParticles.load("tsparticles", {
-  fullScreen: { enable: true, zIndex: -1 },
-  particles: {
-    number: { value: 50 },
-    color: { value: "#00ffff" },
-    shape: { type: "circle" },
-    opacity: { value: 0.4 },
-    size: { value: { min: 1, max: 5 } },
-    move: { enable: true, speed: 1 }
-  },
-  background: { color: "transparent" }
-});
-</script>
+<body class="game-body">
+  <div class="game-container">
+    <canvas id="gameCanvas"></canvas>
+    <div class="ui-overlay">
+      <!-- 可加入血条、按钮、提示等 UI -->
+      <button id="exitBtn" class="exit-btn">返回首页</button>
+    </div>
+  </div>
 
+  <script>
+    // Canvas 初始化
+    const canvas = document.getElementById('gameCanvas');
+    const ctx = canvas.getContext('2d');
+    function resize() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    // 示例绘图
+    ctx.fillStyle = '#222';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = '#fff';
+    ctx.font = '32px Inter';
+    ctx.fillText('游戏加载中...', canvas.width / 2 - 100, canvas.height / 2);
+  </script>
 </body>
 </html>
