@@ -1,98 +1,68 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>HOGE GAMES</title>
   <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@3.0.2/tsparticles.bundle.min.js"></script>
 </head>
 <body>
+  <div id="tsparticles"></div>
 
-<!-- 🌌 粒子背景容器 -->
-<div id="tsparticles"></div>
-
-<!-- 🎬 开场动画 -->
-<div id="splash-screen">
-  <div class="splash-content">
-    <h1 class="splash-logo">HOGE GAMES</h1>
-    <p class="splash-tagline">Explore. Battle. Evolve.</p>
-  </div>
-</div>
-
-<!-- 🌟 主页面内容（开场动画后显示） -->
-<div id="main-content" style="display: none;">
-  <!-- 顶部导航 -->
-  <nav class="navbar glass">
-    <div class="logo">HOGE GAMES</div>
-    <ul class="nav-links">
-      <li><a href="index.html">首页</a></li>
-      <li><a href="game.html">开始游戏</a></li>
-      <li><a href="character.html">角色图鉴</a></li>
-      <li><a href="ranking.html">排行榜</a></li>
-      <li><a href="login.html">登录</a></li>
-    </ul>
-  </nav>
-
-  <!-- 主卡片区域 -->
-  <main class="main-card glass">
-    <h1>欢迎来到 HOGE GAMES</h1>
-    <p>选择你要进入的游戏世界</p>
-    <button id="openGameSelector" class="btn-glass">开始游戏</button>
-  </main>
-
-  <!-- 游戏选择弹窗 -->
-  <div id="gameSelectorModal" class="modal hidden">
-    <div class="modal-content glass">
-      <span class="close-button" id="closeGameSelector">&times;</span>
-      <h2>选择游戏</h2>
-      <div class="game-options">
-        <div class="game-card" onclick="location.href='game.html'">
-          <img src="assets/imgs/game-placeholder.png" alt="战棋" />
-          <p>战棋</p>
-        </div>
-        <!-- 可添加更多游戏卡片 -->
-      </div>
+  <!-- 开场动画 -->
+  <div class="intro-screen">
+    <div class="intro-content">
+      <img src="assets/logo.png" alt="HOGE GAMES Logo" class="intro-logo" />
+      <h1 class="intro-title">HOGE GAMES</h1>
     </div>
   </div>
 
-  <!-- 首页内容占位（可删） -->
-  <section class="content">
-    <p>这是首页内容。</p>
-  </section>
-</div>
+  <!-- 主内容 -->
+  <main class="home-container">
+    <header class="top-header">
+      <img src="assets/logo.png" alt="Logo" class="logo" />
+      <nav class="nav-links">
+        <a href="#">首页</a>
+        <a href="character.html">角色图鉴</a>
+        <a href="ranking.html">排行榜</a>
+        <a href="login.html">登录</a>
+      </nav>
+    </header>
 
-<!-- ✨ 脚本部分 -->
-<script src="https://cdn.jsdelivr.net/npm/tsparticles@3.1.0/tsparticles.bundle.min.js"></script>
-<script>
-tsParticles.load("tsparticles", {
-  fullScreen: { enable: true, zIndex: -1 },
-  particles: {
-    number: { value: 50 },
-    color: { value: "#00ffff" },
-    shape: { type: "circle" },
-    opacity: { value: 0.4 },
-    size: { value: { min: 1, max: 5 } },
-    move: { enable: true, speed: 1 }
-  },
-  background: { color: "transparent" }
-});
-</script>
+    <section class="hero-section">
+      <div class="hero-content">
+        <h1>开启你的冒险之旅</h1>
+        <p>沉浸式 HTML5 动作游戏体验</p>
+        <button id="startGameBtn" class="primary-btn">开始游戏</button>
+      </div>
+    </section>
+  </main>
 
-<!-- 开场动画切换逻辑 -->
-<script>
-window.addEventListener('load', () => {
-  const splash = document.getElementById('splash-screen');
-  const main = document.getElementById('main-content');
-  setTimeout(() => {
-    splash.classList.add('fade-out');
-    setTimeout(() => {
-      splash.style.display = 'none';
-      main.style.display = 'block';
-    }, 1000); // 动画淡出后显示主页面
-  }, 2000); // 动画播放 2 秒
-});
-</script>
+  <!-- 游戏选择弹窗 -->
+  <div class="game-select-modal hidden" id="gameModal">
+    <div class="modal-content">
+      <h2>选择你的游戏</h2>
+      <div class="game-cards">
+        <div class="game-card" onclick="window.location.href='game.html'">
+          <img src="assets/chess.jpg" alt="战棋游戏"/>
+          <p>战棋：策略与荣耀</p>
+        </div>
+      </div>
+      <button class="secondary-btn" id="closeModalBtn">取消</button>
+    </div>
+  </div>
 
-<script src="js/main.js"></script>
+  <footer class="footer">
+    <p>© 2025 HOGE GAMES</p>
+    <div class="footer-icons">
+      <a href="#"><img src="assets/twitter.svg" alt="Twitter" /></a>
+      <a href="#"><img src="assets/discord.svg" alt="Discord" /></a>
+      <a href="mailto:contact@hogegames.com">Contact</a>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
 </body>
 </html>
