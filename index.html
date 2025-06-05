@@ -1,4 +1,3 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="zh">
 <head>
@@ -8,7 +7,11 @@
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <!-- 开场动画 -->
+
+<!-- 🌌 粒子背景容器 -->
+<div id="tsparticles"></div>
+
+<!-- 🎬 开场动画 -->
 <div id="splash-screen">
   <div class="splash-content">
     <h1 class="splash-logo">HOGE GAMES</h1>
@@ -16,29 +19,10 @@
   </div>
 </div>
 
-  <main class="main-card glass">
-  <h1>欢迎来到 HOGE GAMES</h1>
-  <p>选择你要进入的游戏世界</p>
-  <button id="openGameSelector" class="btn-glass">开始游戏</button>
-</main>
-
-<!-- 游戏选择弹窗 -->
-<div id="gameSelectorModal" class="modal hidden">
-  <div class="modal-content glass">
-    <span class="close-button" id="closeGameSelector">&times;</span>
-    <h2>选择游戏</h2>
-    <div class="game-options">
-      <div class="game-card" onclick="location.href='game.html'">
-        <img src="assets/imgs/game-placeholder.png" alt="战棋" />
-        <p>战棋</p>
-      </div>
-      <!-- 你也可以添加更多游戏 -->
-    </div>
-  </div>
-</div>
-
-
-  <nav class="navbar">
+<!-- 🌟 主页面内容（开场动画后显示） -->
+<div id="main-content" style="display: none;">
+  <!-- 顶部导航 -->
+  <nav class="navbar glass">
     <div class="logo">HOGE GAMES</div>
     <ul class="nav-links">
       <li><a href="index.html">首页</a></li>
@@ -48,25 +32,36 @@
       <li><a href="login.html">登录</a></li>
     </ul>
   </nav>
-  <main class="content">
-    <h1>欢迎来到 HOGE GAMES</h1>
-    <p>这是首页内容。</p>
-  </main>
-  
-  <script>
-  window.addEventListener('load', () => {
-    const splash = document.getElementById('splash-screen');
-    setTimeout(() => {
-      splash.classList.add('fade-out');
-      setTimeout(() => {
-        splash.style.display = 'none';
-      }, 1000); // 动画持续时间
-    }, 2000); // 等待时间
-  });
-</script>
 
-  <script src="js/main.js"></script>
-  <div id="tsparticles"></div>
+  <!-- 主卡片区域 -->
+  <main class="main-card glass">
+    <h1>欢迎来到 HOGE GAMES</h1>
+    <p>选择你要进入的游戏世界</p>
+    <button id="openGameSelector" class="btn-glass">开始游戏</button>
+  </main>
+
+  <!-- 游戏选择弹窗 -->
+  <div id="gameSelectorModal" class="modal hidden">
+    <div class="modal-content glass">
+      <span class="close-button" id="closeGameSelector">&times;</span>
+      <h2>选择游戏</h2>
+      <div class="game-options">
+        <div class="game-card" onclick="location.href='game.html'">
+          <img src="assets/imgs/game-placeholder.png" alt="战棋" />
+          <p>战棋</p>
+        </div>
+        <!-- 可添加更多游戏卡片 -->
+      </div>
+    </div>
+  </div>
+
+  <!-- 首页内容占位（可删） -->
+  <section class="content">
+    <p>这是首页内容。</p>
+  </section>
+</div>
+
+<!-- ✨ 脚本部分 -->
 <script src="https://cdn.jsdelivr.net/npm/tsparticles@3.1.0/tsparticles.bundle.min.js"></script>
 <script>
 tsParticles.load("tsparticles", {
@@ -83,5 +78,21 @@ tsParticles.load("tsparticles", {
 });
 </script>
 
+<!-- 开场动画切换逻辑 -->
+<script>
+window.addEventListener('load', () => {
+  const splash = document.getElementById('splash-screen');
+  const main = document.getElementById('main-content');
+  setTimeout(() => {
+    splash.classList.add('fade-out');
+    setTimeout(() => {
+      splash.style.display = 'none';
+      main.style.display = 'block';
+    }, 1000); // 动画淡出后显示主页面
+  }, 2000); // 动画播放 2 秒
+});
+</script>
+
+<script src="js/main.js"></script>
 </body>
 </html>
